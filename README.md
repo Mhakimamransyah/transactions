@@ -13,3 +13,6 @@ Api untuk melihat laporan omzet dari sebuah merchant atau outlets
 ```md
 php -S localhost:8000 -t public
 ```
+
+## Postman Collection
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/7112c660c747610bbfda?action=collection%2Fimport)
