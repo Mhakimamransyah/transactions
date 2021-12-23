@@ -87,10 +87,12 @@ class MerchantController extends Controller
         }
 
          return response()->json([
+                    'status' => 'success',
                     "messages" => "Data berhasil didapatkan",
                     "rows" => sizeof($data),
                     "query" => $query,
                     'data' => $data,
+                    "code" => 200
           ], 200);
     }
 

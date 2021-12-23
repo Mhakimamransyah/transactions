@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "8d0c41b9-e563-4dbb-80b3-83395458d97e",
+		"name": "majoo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvbG9naW4iLCJpYXQiOjE2NDAxNDc5NTYsImV4cCI6MTY0MDE1MTU1NiwibmJmIjoxNjQwMTQ3OTU2LCJqdGkiOiI2bXBtUnhoWjFaOFFUV3V4Iiwic3ViIjoxLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.LWvn6e9F6X9gV00jWLRwkKKgSJTXcd4lIZtXPXXgDag",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant omzet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvbG9naW4iLCJpYXQiOjE2NDAxODM4NTcsImV4cCI6MTY0MDE4NzQ1NywibmJmIjoxNjQwMTgzODU3LCJqdGkiOiIyUzZSOGMzc0lwMU5VSWNxIiwic3ViIjoxLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.bEK4-z56k0mK2Q8Y-HfpI62f14oCj5HqAiwUZysKtQo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/merchants/1/omzet?from=2021-01-01&to=2021-11-30&page=1&per_page=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"merchants",
+						"1",
+						"omzet"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2021-01-01"
+						},
+						{
+							"key": "to",
+							"value": "2021-11-30"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Outlet Omzet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvbG9naW4iLCJpYXQiOjE2NDAxODM4NTcsImV4cCI6MTY0MDE4NzQ1NywibmJmIjoxNjQwMTgzODU3LCJqdGkiOiIyUzZSOGMzc0lwMU5VSWNxIiwic3ViIjoxLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.bEK4-z56k0mK2Q8Y-HfpI62f14oCj5HqAiwUZysKtQo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/merchants/1/outlets/3/omzet?from=2021-11-01&to=2021-11-30&page=3&per_page=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"merchants",
+						"1",
+						"outlets",
+						"3",
+						"omzet"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2021-11-01"
+						},
+						{
+							"key": "to",
+							"value": "2021-11-30"
+						},
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "per_page",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -31,21 +31,26 @@ class AuthController extends Controller
          if ($user) {
             if (! $token = Auth::login($user)){
                   return response()->json([
-                    'error' => false,
+                    'status' => 'failed',
                     'message' => 'Users not found',
-                ], 400);
+                    "code" => 401
+                ], 401);
             }
 
             return response()->json([
+                    'status' => 'success',
                     'data'  => $user,
                     'token' => $token,
                     'message' => 'Login Berhasil!',
+                    "code" => 200
                 ], 200);
 
          } else {
             return response()->json([
+                'status' => 'failed',
                 'message' => 'Username atau password salah',
-            ], 400);
+                "code" => 401
+            ], 401);
          }
 
         // return response()->json(compact('token'));

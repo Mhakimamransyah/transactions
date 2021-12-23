@@ -12,7 +12,21 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+	$greetings = [
+       "Description" => "Majoo omzet transactions report",
+       "Developer" => [
+          "Name" => "M.Hakim Amransyah",
+          "email" => "m.hakim.amransyah.hakim@gmail.com",
+          "linkedin" => 'www.linkedin.com/in/hakim-amr',
+          "website" => 'http://mhakimamransyah.site/'
+       ],
+       "App stacks" => [
+          $router->app->version(),
+          "Mysql"
+       ],
+       "Postman Collections" => "https://www.getpostman.com/collections/7112c660c747610bbfda"
+	];
+    return $greetings;
 });
 
 

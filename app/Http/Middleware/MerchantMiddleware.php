@@ -26,7 +26,9 @@ class MerchantMiddleware
            
             if($merchant->user_id != $user->id){
                 return response()->json([
+                    'status' => 'failed',
                     'message' => 'Unauthorized acces, not your merchants',
+                     "code" => 401
                 ], 401);
             }
 
@@ -35,7 +37,9 @@ class MerchantMiddleware
                $merchant_outlet = Merchant::where("id",$outlet->merchant_id)->first();
                 if($merchant_outlet->user_id != $user->id){
                     return response()->json([
+                        'status' => 'failed',
                         'message' => 'Unauthorized acces, not your outlets',
+                        "code" => 401
                     ], 401);
                 }
             }
