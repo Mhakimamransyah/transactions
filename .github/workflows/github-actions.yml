@@ -23,5 +23,5 @@ jobs:
         env:
           APP_ENV: testing
       - name: Prepare Laravel Application
-        run: ls | pwd
+        run: cd /var/www/html
     
