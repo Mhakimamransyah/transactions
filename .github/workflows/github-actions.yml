@@ -76,7 +76,7 @@ jobs:
     needs: jobs-2
     steps:
       - name: Setup server
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
         with:
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
