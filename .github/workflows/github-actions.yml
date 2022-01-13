@@ -70,12 +70,26 @@ jobs:
       - name: push to docker hub
         run: docker push mhakim/outlet:1.0
 
-  # jobs-3:
-  #   name: Deploy
-  #   runs-on: ubuntu-20.04
-  #   needs: jobs-2
-  #   steps:
-  #     - uses: action/checkout@v2
+  jobs-3:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    needs: jobs-2
+    steps:
+      - name: Setup server
+        uses: action/checkout@v2
+        with:
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+          host: ${{secrets.HOST}}
+          sync: false
+          script_stop: true
+          script: |
+            docker pull mhakim/outlet:1.0
+            docker images
+            docker stop majoo_apps
+            docker rm majoo_apps
+            docker run -d -p 80:80 -p 8000:8000 --name majoo_apps mhakim/outlet:1.0
+            docker container ps
       
 
     
