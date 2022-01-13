@@ -26,8 +26,11 @@ jobs:
           APP_ENV: testing
       - name: Run composer update
         run: composer update
-      - name: Generate .env
-        run: echo ${{secrets.CONFIG_APP}} | base64 -d > .env
+      - name: Generate config file
+        env:
+          CONFIG: ${{secrets.CONFIG_APP}}
+        run: | 
+          echo "$CONFIG" > .env
       - run: ls
       - name: Run testing
         run: ./vendor/bin/phpunit
