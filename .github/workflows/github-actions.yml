@@ -26,6 +26,5 @@ jobs:
         run: | 
           cd /var/www/html
           ls
-          composer update --ignore-platform-reqs
       - run: ls
     
