@@ -26,6 +26,6 @@ jobs:
           APP_ENV: testing
       - name: Run composer update
         run: composer update
-      # - name: Run testing
-      #   run: ./vendor/bin/phpunit
+      - name: Run testing
+        run: ./vendor/bin/phpunit
     
