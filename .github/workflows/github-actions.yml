@@ -46,6 +46,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 7.4
+      - name: Cache composer depedencies
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock')}}
       - name: Run composer install
         run: composer install
       - name: Run composer update
@@ -65,12 +70,12 @@ jobs:
       - name: push to docker hub
         run: docker push mhakim/outlet:1.0
 
-  jobs-3:
-    name: Deploy
-    runs-on: ubuntu-20.04
-    needs: jobs-2
-    steps:
-      - uses: action/checkout@v2
+  # jobs-3:
+  #   name: Deploy
+  #   runs-on: ubuntu-20.04
+  #   needs: jobs-2
+  #   steps:
+  #     - uses: action/checkout@v2
       
 
     
