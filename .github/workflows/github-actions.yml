@@ -22,9 +22,6 @@ jobs:
         run: composer install --ignore-platform-reqs
         env:
           APP_ENV: testing
-      - name: Prepare Laravel Application
-        run: | 
-          cd /var/www/html
-          ls
-      - run: ls
+      - name: Run testing
+        run: ./vendor/bin/phpunit
     
