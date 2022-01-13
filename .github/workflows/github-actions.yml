@@ -16,8 +16,10 @@ jobs:
         with:
           path: vendor
           key: composer-${{ hashFiles('composer.lock')}}
+      - name: Run composer update
+        run: composer update
       - name: Run composer install
-        run: composer
+        run: composer install
         env:
           APP_ENV: testing
     
