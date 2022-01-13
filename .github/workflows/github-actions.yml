@@ -21,9 +21,11 @@ jobs:
           path: vendor
           key: composer-${{ hashFiles('composer.lock')}}
       - name: Run composer install
-        run: php -v
+        run: composer install
         env:
           APP_ENV: testing
+      - name: Run composer update
+        run: composer update
       # - name: Run testing
       #   run: ./vendor/bin/phpunit
     
