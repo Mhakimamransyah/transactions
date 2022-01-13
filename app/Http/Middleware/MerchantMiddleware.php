@@ -34,14 +34,21 @@ class MerchantMiddleware
 
             if(isset($request->route()[2]['id_outlets'])){
                $outlet = Outlet::where("id",$request->route()[2]['id_outlets'])->first();
-               $merchant_outlet = Merchant::where("id",$outlet->merchant_id)->first();
-                if($merchant_outlet->user_id != $user->id){
-                    return response()->json([
-                        'status' => 'failed',
-                        'message' => 'Unauthorized acces, not your outlets',
-                        "code" => 401
-                    ], 401);
-                }
+               if(isset($outlet->merchant_id)){ 
+                    $merchant_outlet = Merchant::where("id",$outlet->merchant_id)->first();
+                    if($merchant_outlet->user_id != $user->id){
+                        return response()->json([
+                            'status' => 'failed',
+                            'message' => 'Unauthorized acces, not your outlets',
+                            "code" => 401
+                        ], 401);
+                    }
+               }else{
+                        return response()->json([
+                            'message' => 'No outlet found'
+                        ], 400);
+               }
+               
             }
 
             return $next($request);

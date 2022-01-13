@@ -2,6 +2,10 @@
 
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
+use App\Model\User;
+use App\Model\Outlet;
+
+
 
 class Merchant extends Model
 {
@@ -25,4 +29,13 @@ class Merchant extends Model
     	'created_at',
     	'updated_at'
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(User::class,'id','user_id');
+    }
+
+    public function Outlet(){
+        return $this->hasMany(Outlet::class,'merchant_id','id');
+    }
 }
