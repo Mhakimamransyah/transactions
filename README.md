@@ -9,6 +9,11 @@ Api untuk melihat laporan omzet dari sebuah merchant atau outlets
 - Daily Merchant omzet report
 - Daily Outlet omzet report
 
+## Live App
+``` md
+https://omzet.mhakimamransyah.site
+```
+
 ## Run this app on local
 ```md
 php -S localhost:8000 -t public
