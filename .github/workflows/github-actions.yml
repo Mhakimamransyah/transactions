@@ -17,13 +17,10 @@ jobs:
           path: vendor
           key: composer-${{ hashFiles('composer.lock')}}
       - name: Run composer update
-        run: composer update --ignore-platform-reqs
-      - name: Run composer install
-        run: composer install --ignore-platform-reqs
-        env:
-          APP_ENV: testing
+        run: composer
       - name: Prepare Laravel Application
         run: | 
           cd /var/www/html
+          composer install --ignore-platform-reqs
       - run: ls
     
