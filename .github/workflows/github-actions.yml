@@ -10,8 +10,9 @@ jobs:
     name: run test
     runs-on: ubuntu-20.04
     steps:
-      - name: Cache composer depedencies
       - uses: actions/checkout@v2
+      - name: Cache composer depedencies
+        uses: actions/cache@v1
         with:
           path: vendor
           key: composer-${{ hashFiles('composer.lock')}}
