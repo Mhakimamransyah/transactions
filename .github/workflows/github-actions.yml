@@ -6,6 +6,7 @@ on:
       - 'master'
 
 jobs:
+
   jobs-1:
     name: run test
     runs-on: ubuntu-20.04
@@ -34,4 +35,13 @@ jobs:
       - run: ls
       - name: Run testing
         run: ./vendor/bin/phpunit
+  
+  jobs-2:
+    name: Build image
+    runs-on: ubuntu-20.04
+    needs: jobs-1
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: ls
     
