@@ -13,7 +13,7 @@
 
 $router->get('/', function () use ($router) {
 	$greetings = [
-       "Description" => "Majoo omzet transactions report",
+       "Description" => "Omzet transactions report",
        "Developer" => [
           "Name" => "M.Hakim Amransyah",
           "email" => "m.hakim.amransyah.hakim@gmail.com",
