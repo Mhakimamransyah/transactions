@@ -19,7 +19,7 @@ jobs:
       # - name: Run composer update
       #   run: composer update --ignore-platform-reqs
       - name: Run composer install
-        run: composer install -n --prefer-dist
+        run: composer update -n --prefer-dist
         env:
           APP_ENV: testing
       - name: Run testing
