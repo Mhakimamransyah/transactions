@@ -1,0 +1,22 @@
+name: CI - CD
+
+on:
+  push:
+    branches: 
+      - 'master'
+
+jobs:
+  jobs-1:
+    name: run test
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Cache composer depedencies
+      - uses: actions/checkout@v2
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock')}}
+      - name: Run composer install
+        run: composer install -n --prefer-dist
+        env:
+          APP_ENV: testing
+    
