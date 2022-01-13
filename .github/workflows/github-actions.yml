@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup php
         uses: shivammathur/setup-php@v2
         with:
@@ -36,7 +38,7 @@ jobs:
       - name: Run testing
         run: ./vendor/bin/phpunit
       - name: Sonar Cloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@master
         env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
