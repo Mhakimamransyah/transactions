@@ -17,7 +17,7 @@ jobs:
           path: vendor
           key: composer-${{ hashFiles('composer.lock')}}
       - name: Run composer install
-        run: composer install -n --prefer-dist
+        run: composer
         env:
           APP_ENV: testing
     
